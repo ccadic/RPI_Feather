@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name RPI_LORA-rescue)(type Legacy)(uri ${KIPRJMOD}/RPI_LORA-rescue.lib)(options "")(descr ""))
+  (lib (name pHAT-cache)(type Legacy)(uri ${KIPRJMOD}/pHAT-cache.lib)(options "")(descr ""))
+  (lib (name RPI_FEATHER-rescue)(type Legacy)(uri ${KIPRJMOD}/RPI_FEATHER-rescue.lib)(options "")(descr ""))
+)

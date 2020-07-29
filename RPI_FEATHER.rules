@@ -1,0 +1,99 @@
+
+(rules PCB RPI_LORA
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 153)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 254.0)
+    (clear 254.2)
+    (clear 127.0 (type smd_to_turn_gap))
+    (clear 600.2 (type default_ANT))
+    (clear 63.6 (type smd_smd))
+    (clear 600.2 (type smd_ANT))
+    (clear 600.2 (type "kicad_default"_ANT))
+    (clear 600.2 (type ANT_ANT))
+  )
+  (padstack "Via[0-1]_889:635_um"
+    (shape
+      (circle F.Cu 889.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 889.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_889:635_um" "Via[0-1]_889:635_um" default
+  )
+  (via 
+    "Via[0-1]_889:635_um-kicad_default" "Via[0-1]_889:635_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_889:635_um-ANT" "Via[0-1]_889:635_um" ANT
+  )
+  (via_rule
+    default "Via[0-1]_889:635_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_889:635_um-kicad_default"
+  )
+  (via_rule
+    ANT "Via[0-1]_889:635_um-ANT"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND 3.3v SCL SDA /5v /RX /TX "Net-(R1-Pad2)"
+    "Net-(R2-Pad2)" /MISO /MOSI /SCK "Net-(D1-Pad2)" /6 /3 /7
+    /4 /BAT /5 "SPI_MISO" "SPI_MOSI" "SPI_SCK" Gpio12 "SPI_CE0"
+    Gpio16 Gpio4 Gpio18 Gpio5
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class ANT
+    (clearance_class ANT)
+    (via_rule ANT)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

@@ -1,0 +1,500 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:pHAT-cache
+LIBS:RPI_LORA-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "LORAWAN RPIZero Mininal RFM95"
+Date "2017-09-25"
+Rev "1.2"
+Comp "www.snaponair.com"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L BPLUS_GPIO PI1
+U 1 1 58D3A0AE
+P 2600 3300
+F 0 "PI1" H 2500 4150 60  0000 C CNN
+F 1 "BPLUS_GPIO" V 2500 3100 50  0000 C CNN
+F 2 "RPi_Hat:Pin_Header_Straight_2x20" V 2500 2300 60  0001 C CNN
+F 3 "" H 2500 3100 60  0000 C CNN
+	1    2600 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L RFM95HW U1
+U 1 1 58D3A41F
+P 5800 2250
+F 0 "U1" H 5450 2500 40  0000 C CNN
+F 1 "RFM95HW" H 6050 1500 40  0000 C CNN
+F 2 "mysensors_radios:RFM69HW_SMD_ThroughHole_Handsoldering" H 5800 2250 30  0001 C CIN
+F 3 "" H 5800 2250 60  0000 C CNN
+	1    5800 2250
+	1    0    0    -1  
+$EndComp
+Text GLabel 1450 2550 0    60   Input ~ 0
+3.3v
+Wire Wire Line
+	2100 2550 1450 2550
+Text GLabel 5700 1250 0    60   Input ~ 0
+3.3v
+Wire Wire Line
+	5700 1250 5800 1250
+Wire Wire Line
+	5800 1250 5800 1900
+$Comp
+L C C1
+U 1 1 58D3A636
+P 6450 1700
+F 0 "C1" H 6475 1800 50  0000 L CNN
+F 1 "10uF" H 6475 1600 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" V 6050 1950 50  0000 C CNN
+F 3 "" H 6450 1700 50  0000 C CNN
+	1    6450 1700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6300 1700 5800 1700
+Connection ~ 5800 1700
+$Comp
+L GND #PWR01
+U 1 1 58D3A6EC
+P 6900 1800
+F 0 "#PWR01" H 6900 1550 50  0001 C CNN
+F 1 "GND" H 6900 1650 50  0000 C CNN
+F 2 "" H 6900 1800 50  0000 C CNN
+F 3 "" H 6900 1800 50  0000 C CNN
+	1    6900 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 1700 6900 1700
+Wire Wire Line
+	6900 1700 6900 1800
+Wire Wire Line
+	5700 3100 5700 3250
+Wire Wire Line
+	5700 3250 5900 3250
+Wire Wire Line
+	5900 3250 5900 3100
+Wire Wire Line
+	5800 3100 5800 3400
+Connection ~ 5800 3250
+$Comp
+L GND #PWR02
+U 1 1 58D3A874
+P 5800 3400
+F 0 "#PWR02" H 5800 3150 50  0001 C CNN
+F 1 "GND" H 5800 3250 50  0000 C CNN
+F 2 "" H 5800 3400 50  0000 C CNN
+F 3 "" H 5800 3400 50  0000 C CNN
+	1    5800 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L CON-SMA ANT1
+U 1 1 58D3AAB9
+P 8200 1850
+F 0 "ANT1" H 8100 2400 60  0000 C CNN
+F 1 "CON-SMA" V 8500 2050 60  0000 C CNN
+F 2 "SMA:SMA_EDGE" H 8200 2550 60  0000 C CNN
+F 3 "" H 8200 1850 60  0000 C CNN
+	1    8200 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 2100 8050 2350
+Wire Wire Line
+	8050 2350 8350 2350
+Wire Wire Line
+	8350 2350 8350 2100
+Wire Wire Line
+	8150 2100 8150 2350
+Connection ~ 8150 2350
+Wire Wire Line
+	8250 2100 8250 2350
+Connection ~ 8250 2350
+Wire Wire Line
+	8200 2350 8200 2700
+Connection ~ 8200 2350
+$Comp
+L GND #PWR03
+U 1 1 58D3B027
+P 8200 2700
+F 0 "#PWR03" H 8200 2450 50  0001 C CNN
+F 1 "GND" H 8200 2550 50  0000 C CNN
+F 2 "" H 8200 2700 50  0000 C CNN
+F 3 "" H 8200 2700 50  0000 C CNN
+	1    8200 2700
+	1    0    0    -1  
+$EndComp
+Text GLabel 4850 1350 0    60   Input ~ 0
+ANT_868
+Wire Wire Line
+	5250 2100 5100 2100
+Wire Wire Line
+	5100 2100 5100 1350
+Wire Wire Line
+	5100 1350 4850 1350
+Text GLabel 7650 1550 0    60   Input ~ 0
+ANT_868
+Wire Wire Line
+	7650 1550 7850 1550
+Wire Wire Line
+	2100 2950 1400 2950
+Wire Wire Line
+	1400 2950 1400 5150
+Wire Wire Line
+	2100 3750 1400 3750
+Connection ~ 1400 3750
+Wire Wire Line
+	2100 4450 1400 4450
+Connection ~ 1400 4450
+$Comp
+L GND #PWR04
+U 1 1 58D3B681
+P 1400 5150
+F 0 "#PWR04" H 1400 4900 50  0001 C CNN
+F 1 "GND" H 1400 5000 50  0000 C CNN
+F 2 "" H 1400 5150 50  0000 C CNN
+F 3 "" H 1400 5150 50  0000 C CNN
+	1    1400 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 2750 3400 2750
+Wire Wire Line
+	3400 2750 3400 5150
+Wire Wire Line
+	2900 3150 3400 3150
+Connection ~ 3400 3150
+Wire Wire Line
+	2900 3450 3400 3450
+Connection ~ 3400 3450
+Wire Wire Line
+	2900 3950 3400 3950
+Connection ~ 3400 3950
+Wire Wire Line
+	2900 4150 3400 4150
+Connection ~ 3400 4150
+$Comp
+L GND #PWR05
+U 1 1 58D3BA8E
+P 3400 5150
+F 0 "#PWR05" H 3400 4900 50  0001 C CNN
+F 1 "GND" H 3400 5000 50  0000 C CNN
+F 2 "" H 3400 5150 50  0000 C CNN
+F 3 "" H 3400 5150 50  0000 C CNN
+	1    3400 5150
+	1    0    0    -1  
+$EndComp
+Text GLabel 2950 3650 2    60   Input ~ 0
+SPI_CE0
+Wire Wire Line
+	2900 3650 2950 3650
+Text GLabel 1850 3650 0    60   Input ~ 0
+SPI_SCK
+Wire Wire Line
+	2100 3650 1850 3650
+Wire Wire Line
+	2100 3350 1700 3350
+Wire Wire Line
+	1700 3350 1700 2550
+Connection ~ 1700 2550
+Text GLabel 5000 2600 0    60   Input ~ 0
+SPI_SCK
+Wire Wire Line
+	5250 2600 5000 2600
+Text GLabel 1300 3450 0    60   Input ~ 0
+SPI_MOSI
+Wire Wire Line
+	2100 3450 1300 3450
+Text GLabel 4750 2400 0    60   Input ~ 0
+SPI_MOSI
+Wire Wire Line
+	5250 2400 4750 2400
+Text GLabel 1150 3600 0    60   Input ~ 0
+SPI_MISO
+Wire Wire Line
+	2100 3550 1350 3550
+Wire Wire Line
+	1350 3550 1350 3600
+Wire Wire Line
+	1350 3600 1150 3600
+Text GLabel 5000 2750 0    60   Input ~ 0
+SPI_MISO
+Wire Wire Line
+	5250 2500 5100 2500
+Wire Wire Line
+	5100 2500 5100 2750
+Wire Wire Line
+	5100 2750 5000 2750
+Text GLabel 3450 3600 2    60   Input ~ 0
+Gpio25
+Wire Wire Line
+	2900 3550 3450 3550
+Wire Wire Line
+	3450 3550 3450 3600
+Text GLabel 6700 2250 2    60   Input ~ 0
+Gpio25
+Wire Wire Line
+	6350 2250 6700 2250
+Text GLabel 3450 3350 2    60   Input ~ 0
+Gpio24
+Wire Wire Line
+	3450 3350 2900 3350
+Text GLabel 6700 2750 2    60   Input ~ 0
+Gpio24
+Wire Wire Line
+	6350 2750 6700 2750
+Text GLabel 5200 2300 0    60   Input ~ 0
+SPI_CE0
+Wire Wire Line
+	5200 2300 5250 2300
+Text GLabel 1550 2850 0    60   Input ~ 0
+Gpio4
+Wire Wire Line
+	1550 2850 2100 2850
+Text GLabel 1300 3050 0    60   Input ~ 0
+Gpio17
+Wire Wire Line
+	1300 3050 2100 3050
+Text GLabel 3000 3050 2    60   Input ~ 0
+Gpio18
+Wire Wire Line
+	2900 3050 3000 3050
+Text GLabel 1800 4250 0    60   Input ~ 0
+Gpio19
+Wire Wire Line
+	2100 4250 1800 4250
+Text GLabel 1850 3950 0    60   Input ~ 0
+Gpio5
+Wire Wire Line
+	2100 3950 1850 3950
+Text GLabel 4700 3000 0    60   Input ~ 0
+Gpio5
+$Comp
+L CONN_01X02 P1
+U 1 1 58D3EA10
+P 4950 3200
+F 0 "P1" H 4950 3350 50  0000 C CNN
+F 1 "CONN_01X02" V 5050 3200 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x02_Pitch2.54mm" H 4950 3200 50  0001 C CNN
+F 3 "" H 4950 3200 50  0000 C CNN
+	1    4950 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4700 3000 4900 3000
+Wire Wire Line
+	5000 3000 5150 3000
+Wire Wire Line
+	5150 3000 5150 2800
+Wire Wire Line
+	5150 2800 5250 2800
+Text GLabel 1200 2750 0    60   Input ~ 0
+SCL
+Wire Wire Line
+	2100 2750 1200 2750
+Text GLabel 1950 2650 0    60   Input ~ 0
+SDA
+Wire Wire Line
+	1950 2650 2100 2650
+$Comp
+L TEST_1P TP1
+U 1 1 58D65E4D
+P 3450 2550
+F 0 "TP1" H 3450 2820 50  0000 C CNN
+F 1 "5v" H 3450 2750 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 3650 2550 50  0001 C CNN
+F 3 "" H 3650 2550 50  0000 C CNN
+	1    3450 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 2550 3450 2550
+$Comp
+L TEST_1P TP2
+U 1 1 58D65FFB
+P 1750 2400
+F 0 "TP2" H 1750 2670 50  0000 C CNN
+F 1 "3v3" H 1750 2600 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 1950 2400 50  0001 C CNN
+F 3 "" H 1950 2400 50  0000 C CNN
+	1    1750 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 2400 1750 2550
+Connection ~ 1750 2550
+$Comp
+L TEST_1P TP3
+U 1 1 58D66152
+P 1100 4700
+F 0 "TP3" H 1100 4970 50  0000 C CNN
+F 1 "GND" H 1100 4900 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 1300 4700 50  0001 C CNN
+F 3 "" H 1300 4700 50  0000 C CNN
+	1    1100 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 4700 1400 4700
+Connection ~ 1400 4700
+Text GLabel 3550 4450 2    60   Input ~ 0
+Gpio21
+Wire Wire Line
+	2900 4450 3550 4450
+Text GLabel 4000 4350 2    60   Input ~ 0
+Gpio20
+Wire Wire Line
+	2900 4350 4000 4350
+Text GLabel 3550 4250 2    60   Input ~ 0
+Gpio16
+Wire Wire Line
+	3550 4250 2900 4250
+Text GLabel 3500 4050 2    60   Input ~ 0
+Gpio12
+Wire Wire Line
+	2900 4050 3500 4050
+$Comp
+L TEST_1P TP4
+U 1 1 58D665DA
+P 3050 4700
+F 0 "TP4" H 3050 4970 50  0000 C CNN
+F 1 "21" H 3050 4900 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 3250 4700 50  0001 C CNN
+F 3 "" H 3250 4700 50  0000 C CNN
+	1    3050 4700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3050 4700 3050 4450
+Connection ~ 3050 4450
+$Comp
+L TEST_1P TP5
+U 1 1 58D6677F
+P 3250 4750
+F 0 "TP5" H 3250 5020 50  0000 C CNN
+F 1 "20" H 3250 4950 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 3450 4750 50  0001 C CNN
+F 3 "" H 3450 4750 50  0000 C CNN
+	1    3250 4750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3250 4750 3250 4350
+Connection ~ 3250 4350
+$Comp
+L TEST_1P TP6
+U 1 1 58D668D0
+P 2950 5000
+F 0 "TP6" H 2950 5270 50  0000 C CNN
+F 1 "16" H 2950 5200 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 3150 5000 50  0001 C CNN
+F 3 "" H 3150 5000 50  0000 C CNN
+	1    2950 5000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2950 5000 2950 4250
+Connection ~ 2950 4250
+$Comp
+L TEST_1P TP7
+U 1 1 58D66A29
+P 4150 3800
+F 0 "TP7" H 4150 4070 50  0000 C CNN
+F 1 "12" H 4150 4000 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 4350 3800 50  0001 C CNN
+F 3 "" H 4350 3800 50  0000 C CNN
+	1    4150 3800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4150 3800 3250 3800
+Wire Wire Line
+	3250 3800 3250 4050
+Connection ~ 3250 4050
+NoConn ~ 2900 2650
+NoConn ~ 2900 2850
+NoConn ~ 2900 2950
+NoConn ~ 2900 3250
+NoConn ~ 2100 3150
+NoConn ~ 2100 3250
+NoConn ~ 2100 3850
+NoConn ~ 2100 4050
+NoConn ~ 2100 4150
+NoConn ~ 2100 4350
+NoConn ~ 2900 3850
+NoConn ~ 2900 3750
+$Comp
+L TEST_1P TP8
+U 1 1 58D68AF6
+P 2100 2400
+F 0 "TP8" H 2100 2670 50  0000 C CNN
+F 1 "SDA" H 2100 2600 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 2300 2400 50  0001 C CNN
+F 3 "" H 2300 2400 50  0000 C CNN
+	1    2100 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 2400 2100 2500
+Wire Wire Line
+	2100 2500 2050 2500
+Wire Wire Line
+	2050 2500 2050 2650
+Connection ~ 2050 2650
+$Comp
+L TEST_1P TP9
+U 1 1 58D692D7
+P 900 2550
+F 0 "TP9" H 900 2820 50  0000 C CNN
+F 1 "SCL" H 900 2750 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 1100 2550 50  0001 C CNN
+F 3 "" H 1100 2550 50  0000 C CNN
+	1    900  2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  2550 900  2650
+Wire Wire Line
+	900  2650 1400 2650
+Wire Wire Line
+	1400 2650 1400 2750
+Connection ~ 1400 2750
+$EndSCHEMATC
